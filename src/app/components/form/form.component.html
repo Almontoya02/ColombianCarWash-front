@@ -1,0 +1,71 @@
+<div class="container-full">
+
+    <div class="row">
+        
+        <div class="col">
+            <button class="btn btn-dark" routerLink="/home">Volver</button>
+            <div>
+                <form class="form">
+                    <fieldset disabled>
+                        <div class="mb-3">
+                            <label for="disabledTextInput" class="form-label">Nombre Empleado</label>
+                            <input type="text" id="disabledTextInput" class="form-control" [placeholder]="empleado">
+                        </div>
+                        <div class="mb-3">
+                            <label for="disabledTextInput" class="form-label">Id Empleado</label>
+                            <input type="text" id="disabledTextInput" class="form-control" [placeholder]="empleadoId">
+                        </div>
+                    </fieldset>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Nombre Cliente</label>
+                        <input type="text" [(ngModel)]="clientName" name="clientName" class="form-control" id="exampleInputEmail1">
+                      </div>
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Email Cliente</label>
+                      <input type="email" [(ngModel)]="clientEmail" name="clientEmail" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">Cedula Cliente</label>
+                      <input [(ngModel)]="clientId" name="clientId" type="number" class="form-control" >
+                    </div>
+                    <label for="exampleInputPassword1" class="form-label">Seleccionar Tipo de Automovil</label>
+                    <select class="form-select mb-3" (change)="calculate()" [(ngModel)]="tipoVehiculo" name="tipoVehiculo" aria-label="Default select example">
+                        <option selected value="Motocicleta">Motocicleta</option>
+                            <option value="Automovil">Automóvil</option>
+                            <option value="Camion">Camión</option>
+
+                    </select>
+                    <label for="exampleInputPassword1" class="form-label">Seleccionar Tipo de Lavado</label>
+                    <select class="form-select mb-3" (change)="calculate()" [(ngModel)]="tipoLavado" name="tipoLavado" aria-label="Default select example">
+                        <option selected value="Sencillo">Sencillo</option>
+                        <option value="Brillado">Brillado</option>
+                    </select>
+                    <fieldset disabled>
+                        <div class="mb-3">
+                            <label for="disabledTextInput" class="form-label">Precio: </label>
+                            <input type="text" id="disabledTextInput" class="form-control" [placeholder]="calculate() | currency:'USD'">
+                        </div>
+                    </fieldset>
+                    <button type="submit" (click)="createRecord()" class="btn btn-primary">Enviar registro</button>
+                </form>
+            </div>
+
+        </div>
+        <div class="col">
+            <button class="btn btn-danger" (click)="signOut()">Cerrar Sesión</button>
+            <h1>
+                Mis lavados
+            </h1>
+            <hr>
+            <div *ngIf="this.recordService.listRecord.length==0" class="card text-dark bg-warning mb-3" style="max-width: 32rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Sin Lavados</h5>
+                  <p class="card-text">Aún no has hecho lavados</p>
+                </div>
+            </div>
+            <div *ngIf="this.recordService.listRecord.length!=0" class="cards">
+                <app-card-lavados *ngFor="let record of this.recordService.listRecord" [date]="convertToDate(record.date)" [clientName]="record.clientName" [vehicleType]="record.vehicleType" [washType]="record.washType" [washPrice]="record.washPrice"></app-card-lavados>
+            </div>
+        </div>
+    </div>
+</div>

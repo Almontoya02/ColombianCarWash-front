@@ -1,0 +1,22 @@
+<div class="card">
+    <div class="card-header">
+     <h3> <b>Cliente: </b>{{clientName}}</h3>
+    </div>
+    <div class="card-body">
+      <blockquote class="blockquote mb-0">
+        <ul>
+            <li>
+                <b>Tipo de Vehículo: </b>  {{vehicleType}}
+            </li>
+            <li>
+                <b>Tipo de lavado: </b>  {{washType}}
+            </li>
+            <li>
+                <b>Precio: </b> COP {{washPrice | currency}}
+            </li>
+        </ul>
+        <footer class="blockquote-footer">{{date}}<cite title="Source Title"></cite></footer>
+      </blockquote>
+    </div>
+  </div>
+  <br>

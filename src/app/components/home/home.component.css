@@ -1,0 +1,30 @@
+.container-full{
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    background: url("https://previews.123rf.com/images/imthong89/imthong891403/imthong89140300055/26712280-beauty-black-car-with-soap-in-car-wash.jpg");    margin: 0;
+    display: flex;
+    background-color: antiquewhite;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.btn{
+    margin: 3vh;
+}
+.info{
+    margin-top: 10vh;
+    gap: 5vh;
+    padding: 2vh;
+    height: 40vw;
+    border-radius: 4vh;
+    display: flex;
+    flex-direction: column;
+    background-color: bisque;
+    align-items: center !important;
+    justify-content: center !important;
+}
+.col{
+    width: 33vw;
+}

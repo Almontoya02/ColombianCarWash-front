@@ -1,0 +1,25 @@
+.container-full{
+    padding: 0;
+    display: flex;
+    background-color: rgb(99, 98, 97);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.form{
+    width: 40vw;
+}
+
+.col{
+    width: 50vw;
+    height: 100vh;
+    overflow-y: scroll;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.btn{
+    margin: 2vh;
+}
