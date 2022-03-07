@@ -71,7 +71,8 @@ export class FormComponent implements OnInit {
       this.clientId,
       this.tipoVehiculo,
       this.tipoLavado,
-      this.washPrice);
+      this.washPrice,
+      this.getDAte());
     
     const recordValidation = await this.recordService.createRecord(form,localStorage.getItem("email"),localStorage.getItem("token"))
     
@@ -79,9 +80,17 @@ export class FormComponent implements OnInit {
       alert("Registro exitoso");
       if(await this.recordService.sendEmail(form,localStorage.getItem("email"),localStorage.getItem("token"))){
         alert("Correo enviado!")
-        window.location.reload()
+        this.router.navigateByUrl("/home")
       }
     }  
+  }
+
+  getDAte(){
+    var hoy = new Date();
+    var fecha = hoy.getDate() + '-' + ( hoy.getMonth() + 1 ) + '-' + hoy.getFullYear();
+    var hora = hoy.getHours() + ':' + hoy.getMinutes() + ':' + hoy.getSeconds();
+    var fechaYHora = fecha + ' ' + hora;
+    return fechaYHora;
   }
 
 }

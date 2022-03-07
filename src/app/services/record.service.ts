@@ -68,7 +68,7 @@ export class RecordService {
       clientEmail:form.clientEmail,
       vehicleType:form.vehicleType,
       washType:form.washType,
-      washPrice:form.washPrice
+      washPrice:form.washPrice,
     },{
       headers:{
         email,
@@ -85,7 +85,8 @@ export class RecordService {
       clientName:form.clientName,
       vehicleType:form.vehicleType,
       washType:form.washType,
-      washPrice:form.washPrice
+      washPrice:form.washPrice,
+      date:form.date
     },{
       headers:{
         email,
